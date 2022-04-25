@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+    
+</head>
+<body>
+    <header>
+        <a class="active" href="#home">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+    </header>
+
+<h1>Watch your favourite TV show </h1>
+
+    <div id = "search">
+
+        <input type = "text" id = "search">
+        <button onclick="search()"> search</button>
+        <hr>
+    </div>
+    <div id="myData"></div>
+
+    <script>
+        fetch('https://api.tvmaze.com/shows')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        function appendData(data) {
+            var mainContainer = document.getElementById("myData");
+            
+            for (var i = 0; i < data.length; i++) 
+            {
+                var div = document.createElement("div");
+                div.innerHTML = ` <h1>${data[i].name}</h1>
+                <a href = "#" id = "select">watch</a>
+                <p>${data[i].genres}</p>
+                <img  src=${data[i].image.medium}> 
+                 <p>${data[i].summary}</p>   `;
+                mainContainer.appendChild(div);
+                
+            }   
+        }
+
+        // function select(data){
+            
+        //     for(var i = 0;i<data.length;i++)
+        //     {
+        //         var a = document.createElement("a")
+        //         a.innerHTML = `<p>${data[i].id}</p>`
+        //     }
+        // }
+
+        function search()
+        {
+            for(let i=0;i<data.length;i++)
+            {
+                var word = document.getElementById('search').value
+                if(word == data[i].name)
+                {
+                    document.getElementById('name').innerHTML
+                }
+            }
+        }
+    </script>
+    <footer>
+    
+        <p>Author <br>
+        <a href="mailto:srilaxman48@gmail.com">srilaxman48@gmail.com</a></p>
+    </footer>
+    
+    </body>
+</html>

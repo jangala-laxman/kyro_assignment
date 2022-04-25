@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    
+    <form action="" method="POST">
+        <div id = container>
+            <h2>Log In</h2>
+            <input type="text" id = "email" placeholder="Email" required><br>
+            <input type="password" id = "password" placeholder="password" required><br>
+            <button onsubmit="m()"  id = submit>submit</button>
+        </div>   
+    </form>
+
+    <p>
+        Not a customer?<a href="register.html">Register here</a>
+    </p>
+    <a href = #><p>Forgot Password</p></a>
+
+    <script>
+      var userArray = [];
+var passArray = []
+function m()
+{
+var username = document.getElementById("username").value
+var password = document.getElementById("password").value
+    userArray.push(username)
+    passArray.push(password)
+    console.log(userArray+" "+passArray)
+}
+      function validation()
+    {
+
+        var valid = false;
+
+
+
+        for (var i=0; i <userArray.length; i++) {
+            if ((username == userArray[i]) && (password == passArray[i])) {
+                valid = true;
+                index = i;
+                break;
+            }
+        }
+    }
+     </script>
+</body>
+</html>

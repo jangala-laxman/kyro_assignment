@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel ="stylesheet" src="watch.css">
+</head>
+<body>
+
+    <header>
+
+        <a class="active" href="#home">Home</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+        <input type="text" placeholder="Search">
+    </header>
+    
+<p id = "watch"></p>
+
+<script>
+var idArray = new Array();
+
+    fetch('https://api.tvmaze.com/shows')
+    .then((res=>res.json()))
+    .then((data)=>watchMovie(data))
+    .catch((err)=>console.log(" error:" + err))
+
+    function watchMovie(data)
+    {
+        var cont = document.getElementById("watch");
+        for(let i=0;i<data.length;i++)
+        {
+            var div = document.createElement("div")
+            // var button = document.createElement("button")
+            // button.innerHTML = `watch`
+
+            div.innerHTML = `<div style= "padding:20px";><h1>${data[i].name}</h1>
+                
+                <p>${data[i].genres}</p><a href="recommendation.html">
+                <img  src=${data[i].image.medium}> </a>
+                 <p>${data[i].summary}</p>   <hr>
+                 </div>`;
+                cont.appendChild(div);
+             
+        }
+
+       
+    }
+    function printId(e)
+    {
+        e = window.event
+        e = e.target
+        console.log("ID: "+e.id)
+    }
+    
+    
+
+</script>
+
+</body>
+</html>

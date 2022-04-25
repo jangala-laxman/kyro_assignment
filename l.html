@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TV search</h1>
+    <input type = "text" id = "searchField">
+    <button onsubmit="">submit</button>
+    <ul id = "resultList">
+
+    </ul>
+
+
+<script>
+    function my(item)
+    {
+        item = item.show.name
+    }
+    function searchShow(query)
+    {
+    const url = `https://api.tvmaze.com/singlesearch/shows?q=${query}`;
+    fetch(url)
+    .then((res)=>res.json())
+    .then((data)=>{
+        data.map((element)=>element.show.name)
+        console.log(data)
+    })
+    
+}
+
+function renderResult(results){
+    const list = document.getElementById("resultList")
+    list.innerHTML = ""
+    results.array.forEach(result => {
+        const element = document.createElement("li")
+        element.innerText = result;
+        list.appendChild(element)
+    });
+}
+let searchTimeoutToken = 0
+window.onload = ()=>{
+
+    const searchFieldElement = document.getElementById("searchField")
+    document.getElementById("searchField").onkeyup = (event)=>{
+
+
+        clearTimeout(searchTimeoutToken)
+        if(searchFieldElement.value.trim().length === 0 )
+        {
+            return
+        }
+        // searchTimeoutToken = setTimeout(()=>{
+        //     searchShow(searchFieldElement.value)
+        // },250)
+       
+    }
+}
+
+
+
+</script>
+</body>
+</html>

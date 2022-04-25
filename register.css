@@ -1,0 +1,51 @@
+h1{
+    border:30px;
+    background-color: beige;
+
+}
+body{
+    background-image: none;
+}
+h2{
+
+    padding: 10px;
+    background-color:black;
+    color:white;
+    padding-left:5%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container{
+padding:16px;
+  }
+
+hr{
+border:1px solid black;
+margin-bottom:20px;
+}
+
+input{
+    margin:12px;
+    padding-left:5%;
+    display:inline-flex;
+    border:none;
+    /* background:#f1f1f1; */
+}
+
+#registerbtn {
+    background-color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    margin: 8px 20px;
+    border: none;
+    color:white;
+    cursor: pointer;
+    align-items:center;
+    width: 90%;
+    opacity: 0.9;
+}
+*{
+    box-sizing:border-box
+}
+.login-page{
+    text-align: center;
+}
