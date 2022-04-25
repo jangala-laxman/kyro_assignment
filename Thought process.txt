@@ -1,0 +1,16 @@
+
+
+my thought 
+Working with arrays will make the task easier than fetching the data from database. using these arrays maximum watched genre and cast was taken into consideration and 
+
+Home page  - [home.html home.css]
+contact page - [contact.html contact.css]
+About - left empty
+
+login page - [login.html, login.css]
+register page - [register.html, register.css]   
+Authentication is not yet done for adding user and login to the page  - [validation.js]
+
+
+Converted json data to html content and displayed the content in home page 
+recommending page shows watch history, recommended movies, currently watching but didnt complete the task  - [recommend.html, recommend.css]
